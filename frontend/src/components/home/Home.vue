@@ -3,10 +3,28 @@
     <meu-header>
         <img class="img-header" src="../../assets/logo-black.svg" alt="">  
     </meu-header>
-    <h2 class="sub-titulo">Reserve uma sala de reunião</h2>
+    <h2 class="sub-titulo">Locais Reservaveis:</h2>
 
     <main class="salas"> 
+        <div class="titulo-salas">
+            <h2>Salas:</h2>
+        </div>
       <ul class="lista-fotos">
+       <li class="lista-fotos-item" v-for="foto of fotos" v-bind:key="foto">
+           <div class="painel">
+              <img class="image-responsive" :src="foto.url" :alt="foto.titulo">
+            <div>
+            <h3 class="centralizado">{{foto.titulo}}</h3>
+            <p class="centralizado">{{foto.desc}}</p>
+          </div>
+        </div> 
+      </li>
+    </ul>
+
+    <div class="titulo-salas">
+        <h2>locais:</h2>
+    </div>
+    <ul class="lista-fotos">
        <li class="lista-fotos-item" v-for="foto of fotos" v-bind:key="foto">
            <div class="painel">
               <img class="image-responsive" :src="foto.url" :alt="foto.titulo">
@@ -62,8 +80,14 @@ export default {
 
 .sub-titulo {
   font-size: 40px;
-  margin: 40px 45px;
+  margin: 40px 45px 70px;
   color: #606566;
+  text-align: center;
+}
+.titulo-salas {
+    background: #ffff;
+    border-bottom: #606566 solid 2px;
+
 }
 .lista-fotos {
   list-style: none;
@@ -86,4 +110,5 @@ export default {
 .image-responsive {
   width: 100%;
 }
+
 </style>
