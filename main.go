@@ -3,28 +3,21 @@ package main
 import (
 	"fixpay/reserva-mesa-sala/controllers"
 	"fmt"
-
+	goutils "github.com/armando-couto/goutils"
 	fiber "github.com/gofiber/fiber/v2"
+	"log"
 )
-
-type SignupRequest struct {
-	Name     string
-	Email    string
-	Password string
-}
-type LoginRequest struct {
-	Email    string
-	Password string
-}
 
 func main() {
 	app := fiber.New()
 
-	fmt.Println("Carregando servidor...")
+	//=============================== Routes ===============================
+	app.Post("/signup", controllers.SignUp)
+	app.Post("/login", controllers.SignIn)
+	app.Get("/private", controllers.Private)
+	app.Get("/public", controllers.Public)
 
-	app.Post("/signup", controllers.HandleSignup)
-	app.Post("/login", controllers.HandleLogin)
-	app.Get("/private", controllers.HandlePrivate)
-	app.Get("/public", controllers.HandlePublic)
-	app.Listen(":8000")
+	//================================ Run =================================
+	fmt.Println("Carregando servidor...")
+	log.Fatal(app.Listen(fmt.Sprint(":", goutils.Godotenv("port_application"))))
 }
