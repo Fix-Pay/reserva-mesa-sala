@@ -11,8 +11,13 @@ import (
 func main() {
 	app := fiber.New()
 
-	// GET /api/register
-	app.Get("/api/*", controllers.HomePageHandler)
+	//=============================== Routes ===============================
+	app.Post("/signup", controllers.SignUp)
+	app.Post("/login", controllers.SignIn)
+	app.Get("/private", controllers.Private)
+	app.Get("/public", controllers.Public)
 
+	//================================ Run =================================
+	fmt.Println("Carregando servidor...")
 	log.Fatal(app.Listen(fmt.Sprint(":", goutils.Godotenv("port_application"))))
 }
