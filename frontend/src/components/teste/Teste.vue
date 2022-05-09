@@ -1,7 +1,6 @@
 <template>
   <div class="corpo">
-    <router-view></router-view>
-
+      <h1>ola</h1>
   </div>
 </template>
 
@@ -13,9 +12,5 @@ export default {
 </script>
 
 <style>
-.corpo {
-  margin: 0;
-  padding: 0;
-}
 
 </style>
