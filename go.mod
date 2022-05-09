@@ -3,6 +3,7 @@ module fixpay/reserva-mesa-sala
 go 1.16
 
 require (
+	github.com/gofiber/fiber v1.14.6 // indirect
 	github.com/gofiber/fiber/v2 v2.32.0
 	github.com/golang-jwt/jwt/v4 v4.4.1
 	github.com/klauspost/compress v1.15.2 // indirect
