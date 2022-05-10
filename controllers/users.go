@@ -5,6 +5,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gofiber/fiber/v2"
 	"golang.org/x/crypto/bcrypt"
+	"log"
 	"os"
 	"time"
 )
@@ -75,4 +76,27 @@ func Auth(c *fiber.Ctx) error {
 		Token: token,
 		User:  user,
 	})
+}
+
+func CreateTables(c *fiber.Ctx) error {
+	var table models.Table
+	if err := c.BodyParser(&table); err != nil {
+		log.Fatalln(err)
+	}
+	if err := table.Create(); err != nil {
+		log.Fatalln(err)
+	}
+	return c.JSON(table)
+}
+
+func GetTables(c *fiber.Ctx) error {
+	id, err := c.ParamsInt("id")
+	if err != nil {
+		return err
+	}
+	table := models.Table{Id: uint(id)}
+	if err := table.Get(); err != nil {
+		return err
+	}
+	return c.JSON(table)
 }

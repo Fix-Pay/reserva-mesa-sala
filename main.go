@@ -26,6 +26,6 @@ func main() {
 
 	// Declaring port //
 	if err := app.Listen(":8000"); err != nil {
-		log.Fatalln("Deu erro doidao", err)
+		log.Fatalln("Erro listen and server", err)
 	}
 }
