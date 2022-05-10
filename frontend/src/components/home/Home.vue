@@ -7,21 +7,21 @@
 
     <main class="salas"> 
         <div class="titulo-salas">
-            <h2>Salas:</h2>
+            <h2>Locais:</h2>
         </div>
       <ul class="lista-fotos">
        <li class="lista-fotos-item" v-for="foto of fotos" v-bind:key="foto">
            <div class="painel">
-              <img class="image-responsive" :src="foto.url" :alt="foto.titulo">
+              <!-- <img class="image-responsive" :src="foto.url" :alt="foto.titulo"> -->
             <div>
             <h3 class="centralizado">{{foto.titulo}}</h3>
-            <p class="centralizado">{{foto.desc}}</p>
+            <!-- <p class="centralizado">{{foto.desc}}</p> -->
           </div>
         </div> 
       </li>
     </ul>
 
-    <div class="titulo-salas">
+    <!-- <div class="titulo-salas">
         <h2>locais:</h2>
     </div>
     <ul class="lista-fotos">
@@ -34,7 +34,7 @@
           </div>
         </div> 
       </li>
-    </ul>
+    </ul> -->
 
     </main>
     
@@ -55,22 +55,27 @@ export default {
       //ainda tem que fazer uma requisiçao pra api pra buscar esses dados abaixo de forma dinamica
       fotos: [
         {
-        url: 'https://cdn.eurekacoworking.com/wp-content/uploads/2020/08/09214622/Sala-reuniao-2-4-pessoas_2.jpg',
-        titulo: 'sala 1707',
-        desc: 'sala de reunião'
+        id: '1',
+        titulo: 'mesa 1',
+        status: false,
         },
         {
-          url: 'https://www.deltabc.com.br/uploads/salas-de-reuniao-para-alugar.jpg',
-          titulo: 'sala 1709',
-          desc: 'sala de reunião'
+        id: '2',
+        titulo: 'mesa 2',
+        status: false,
         },
-        {
-          url: 'https://bclass.com.br/wp-content/uploads/2020/07/20170528_131819-1024x768.jpg',
-          titulo: 'sala 1906',
-          desc: 'sala de reunião'
-        }
+         {
+        id: '3',
+        titulo: 'mesa 3',
+        status: false,
+        },
       ]
     }
+    // created() {
+    //   this.$http.get('url')
+    //     .then(res => res.json())
+    //     .then(fotos => this.fotos = fotos, err => conole.log(err));
+    // }
 
   }
 }
