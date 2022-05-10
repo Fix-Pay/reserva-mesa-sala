@@ -11,9 +11,14 @@ import (
 
 func CreateUser(c *fiber.Ctx) error {
 	var user models.User
+	// Getting informations in body parser //
 	if err := c.BodyParser(&user); err != nil {
 		return err
 	}
+	if user.Email == "" || user.Nome == "" || user.Password == "" {
+		return fiber.NewError(fiber.StatusBadGateway, "Valores inseridos invalidos")
+	}
+	// Encrypting Password //
 	pass, err := bcrypt.GenerateFromPassword([]byte(user.Password), 14)
 	if err != nil {
 		return err
@@ -42,6 +47,9 @@ func Auth(c *fiber.Ctx) error {
 	var user models.User
 	if err := c.BodyParser(&user); err != nil {
 		return err
+	}
+	if user.Email == "" || user.Password == "" {
+		return fiber.NewError(fiber.StatusBadGateway, "Valores inseridos invalidos")
 	}
 	triedPassword := user.Password
 	user.Password = ""

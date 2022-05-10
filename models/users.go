@@ -19,6 +19,7 @@ func (s *User) Get() error {
 	return result.Error
 }
 
+// Create User in DB //
 func (s *User) Create() error {
 	engine, err := db.CreateDB()
 	if err != nil {
