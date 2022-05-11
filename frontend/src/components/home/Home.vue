@@ -4,26 +4,20 @@
         <img class="img-header" src="../../assets/logo-black.svg" alt="">  
     </meu-header>
     <h2 class="sub-titulo">Locais Reservaveis:</h2>
-
     <main class="salas"> 
         <div class="titulo-salas">
             <h2>Locais:</h2>
         </div>
       <ul class="lista-fotos">
        <li class="lista-fotos-item" v-for="mesa of mesas" v-bind:key="mesa">
-           <div class="painel" v-on:click="pegaId(mesa.id)">
-              <!-- <img class="image-responsive" :src="foto.url" :alt="foto.titulo"> -->
-            <div>
+           <div class="painel" v-on:click="pegaId(mesa.id)" v-bind:style=" mesa.status ? 'background-color: red;' : 'background-color: green;'">
+             <div>
             <h3 class="centralizado">{{mesa.titulo}}</h3>
             <!-- <p class="centralizado">{{foto.desc}}</p> -->
           </div>
         </div> 
       </li>
     </ul>
-    <modal v-if="showmodal" v-on:close="showmodal = false">
-        <span>conteudo aqui</span>
-    </modal>
-
     <!-- <div class="titulo-salas">
         <h2>locais:</h2>
     </div>
@@ -91,9 +85,7 @@ export default {
         //reservaMesa(this.selected)
         alert(this.selected)
       }
-      alert(this.selected)
-      //alert(this.showmodal)
-    }
+    },
     // reservaMesa(id){
     //   Mesa.salvar(id).then(resposta => {
     //     alert('reservado')
@@ -120,6 +112,7 @@ export default {
 .titulo-salas {
     background: #ffff;
     border-bottom: #606566 solid 2px;
+
 
 }
 .lista-fotos {

@@ -3,14 +3,12 @@
     <meu-header>
         <img class="img-header" src="../../assets/logo-black.svg" alt="">
     </meu-header>
-    <ul>
-        <li class="lista-logs">
-            <div class="div-log">
-                <h3 class="titulo">reservas:</h3>
-            </div>
-        </li>
-    </ul>
-    
+        <div class="container">
+            <h2 class="titulo">Reservados:</h2>
+            <ul class="ul-lista">
+                <li class="lista-logs"></li>
+            </ul>  
+        </div> 
 </div> 
 </template>
 
@@ -28,22 +26,20 @@ export default {
 </script>
 
 <style>
-.lista-logs {
-    list-style: none;
-}
-
-.div-log {
-    background-color: #8e9799 ;
-    width: 50vw;
-    height: 50vh;
-    margin: 0px 100px;
-    
+.container {
+    width: 550px;
+    height: 450px;
+    background-color: #858687;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -225px;
+    margin-left: -275px;
+    box-shadow: 5px 5px 8px black; ;
 }
 .titulo {
     text-align: center;
 }
-
-
 
 
 
