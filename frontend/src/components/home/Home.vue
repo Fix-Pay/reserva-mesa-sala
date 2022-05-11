@@ -10,16 +10,19 @@
             <h2>Locais:</h2>
         </div>
       <ul class="lista-fotos">
-       <li class="lista-fotos-item" v-for="foto of fotos" v-bind:key="foto">
-           <div class="painel">
+       <li class="lista-fotos-item" v-for="mesa of mesas" v-bind:key="mesa">
+           <div class="painel" v-on:click="pegaId(mesa.id)">
               <!-- <img class="image-responsive" :src="foto.url" :alt="foto.titulo"> -->
             <div>
-            <h3 class="centralizado">{{foto.titulo}}</h3>
+            <h3 class="centralizado">{{mesa.titulo}}</h3>
             <!-- <p class="centralizado">{{foto.desc}}</p> -->
           </div>
         </div> 
       </li>
     </ul>
+    <modal v-if="showmodal" v-on:close="showmodal = false">
+        <span>conteudo aqui</span>
+    </modal>
 
     <!-- <div class="titulo-salas">
         <h2>locais:</h2>
@@ -43,6 +46,7 @@
 
 <script>
 import Header from '../header/Header.vue'
+import Mesa from '../../services/mesas'
 
 
 export default {
@@ -53,7 +57,7 @@ export default {
   data () {
     return {
       //ainda tem que fazer uma requisiçao pra api pra buscar esses dados abaixo de forma dinamica
-      fotos: [
+      mesas: [
         {
         id: '1',
         titulo: 'mesa 1',
@@ -71,13 +75,37 @@ export default {
         },
       ]
     }
-    // created() {
-    //   this.$http.get('url')
-    //     .then(res => res.json())
-    //     .then(fotos => this.fotos = fotos, err => conole.log(err));
-    // }
+  },
+  //get para pegar os locais
 
-  }
+  // mounted(){
+  //   Mesa.listar().then(resposta => {
+  //     this.mesas = resposta.data
+  //   })
+  // },
+  methods : {
+    pegaId(id) {
+      this.selected = id
+      this.showmodal = true
+      if(window.confirm("voce quer reservar ?")) {
+        //reservaMesa(this.selected)
+        alert(this.selected)
+      }
+      alert(this.selected)
+      //alert(this.showmodal)
+    }
+    // reservaMesa(id){
+    //   Mesa.salvar(id).then(resposta => {
+    //     alert('reservado')
+    // })
+    //}
+  
+  // if( resultado == 200){
+    //alguma coisa pra reservar ou methodo de atualizar pagina
+  //}
+  //}
+ 
+  } 
 }
 </script>
 
