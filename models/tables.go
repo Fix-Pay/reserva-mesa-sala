@@ -3,8 +3,9 @@ package models
 import "github.com/Fix-Pay/reserva-mesa-sala/db"
 
 type Table struct {
-	Local  string `json:"local"`
 	Status bool   `json:"status"`
+	Name   string `json:"name"`
+	Place  string `json:"place"`
 	Id     uint   `json:"id" gorm:"primaryKey"`
 }
 
