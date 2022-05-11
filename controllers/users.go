@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"github.com/Fix-Pay/reserva-mesa-sala/db"
 	"github.com/Fix-Pay/reserva-mesa-sala/models"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gofiber/fiber/v2"
@@ -12,7 +13,7 @@ import (
 
 func CreateUser(c *fiber.Ctx) error {
 	var user models.User
-	// Getting informations in body parser //
+	// Getting informations from body parser //
 	if err := c.BodyParser(&user); err != nil {
 		return err
 	}
@@ -90,13 +91,11 @@ func CreateTables(c *fiber.Ctx) error {
 }
 
 func GetTables(c *fiber.Ctx) error {
-	id, err := c.ParamsInt("id")
+	engine, err := db.CreateDB()
 	if err != nil {
 		return err
 	}
-	table := models.Table{Id: uint(id)}
-	if err := table.Get(); err != nil {
-		return err
-	}
-	return c.JSON(table)
+	var tables []models.Table
+	engine.Find(&tables)
+	return c.JSON(tables)
 }

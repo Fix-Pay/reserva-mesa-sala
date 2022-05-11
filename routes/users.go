@@ -10,7 +10,7 @@ func HandleUsers(app *fiber.App) error {
 	app.Get("/users/:id", controllers.GetUser)
 	app.Post("/users/auth", controllers.Auth)
 	app.Post("/tables/create", controllers.CreateTables)
-	app.Get("/tables/:id", controllers.GetTables)
+	app.Get("/tables", controllers.GetTables)
 
 	return nil
 }
