@@ -1,46 +1,64 @@
 <template>
   <div class="container-login">
-    <form method="post">
-      <div class="imgcontainer">
-        <img src="./2.png" alt="Avatar" class="avatar">
-      </div>
+    <div class="img-container">
+      <img src="./2.png" alt="Avatar" class="avatar">
+    </div>
 
-      <div class="container">
-        <input type="text" placeholder="Username" name="uname" required>
-        <input type="password" placeholder="Password" name="psw" required>
-        <button type="submit">Login</button>
-      </div>
-    </form>
+    <div class="container">
+      <input type="text" placeholder="Username" name="uname" required>
+      <input type="password" placeholder="Password" name="psw" required>
+      <button type="submit">Login</button>
+    </div>
+
+    <div class="container-img">
+      <img src="./6.png">
+    </div>
+
   </div>
 </template>
 
 <script>
+import Header from "../header/Header";
+import axios from "axios";
+
 export default {
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: "Login"
-}
+  name: 'Login',
+  components: {Header},
+  methods: {
+    getUser() {
+      axios
+        .get('localhost:8000/users')
+        .then(( res ) => {
+          this.user = res.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
-form {
-  width: 93%;
-
-}
 input, button, span {
   font-family: "Montserrat", sans-serif;
 }
 
 input[type=text], input[type=password] {
-  width: 110%;
+  width: 90%;
   padding: 12px 20px;
   margin: 5px 0;
   display: flex;
   align-items: center;
   border-radius: 4px;
+  border: 1px solid white;
+  border-bottom: 1px solid gray;
 }
 
 button {
   background-color: #4FB8CE;
+  border: 1px solid white;
+  font-weight: bold;
   color: white;
   padding: 10px;
   margin: 20px;
@@ -48,7 +66,7 @@ button {
 }
 
 button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .container-login {
@@ -56,8 +74,12 @@ button:hover {
   justify-content: center;
 }
 
+img {
+  width: 100%;
+  height: 160%;
+}
 
-.imgcontainer {
+.img-container {
   text-align: center;
   margin: 20px -50px -35px 0;
 }
@@ -71,17 +93,5 @@ button:hover {
   display: grid;
   align-items: center;
   justify-content: center;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
 }
 </style>
