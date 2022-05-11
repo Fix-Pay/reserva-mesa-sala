@@ -136,5 +136,8 @@ export default {
 .image-responsive {
   width: 100%;
 }
+.painel {
+  cursor: pointer;
+}
 
 </style>
