@@ -13,7 +13,6 @@
            <div class="painel" v-on:click="pegaId(mesa.id)" v-bind:style=" mesa.status ? 'background-color: red;' : 'background-color: green;'">
              <div>
             <h3 class="centralizado">{{mesa.titulo}}</h3>
-            <!-- <p class="centralizado">{{foto.desc}}</p> -->
           </div>
         </div> 
       </li>
@@ -55,7 +54,7 @@ export default {
         {
         id: '1',
         titulo: 'mesa 1',
-        status: false,
+        status: true,
         },
         {
         id: '2',
@@ -80,12 +79,16 @@ export default {
   methods : {
     pegaId(id) {
       this.selected = id
-      this.showmodal = true
+      this.time = this.printTime();
       if(window.confirm("voce quer reservar ?")) {
         //reservaMesa(this.selected)
         alert(this.selected)
+        alert(this.time)
       }
     },
+     printTime: function () {
+            return new Date().toLocaleTimeString();
+          },
     // reservaMesa(id){
     //   Mesa.salvar(id).then(resposta => {
     //     alert('reservado')
