@@ -1,11 +1,11 @@
 <template>
   <div>
     <meu-header>
-        <img class="img-header" src="../../assets/logo-black.svg" alt="">  
+        <img class="img-header" src="../../assets/logo-black.svg" alt="">
     </meu-header>
     <h2 class="sub-titulo">Locais Reservaveis:</h2>
 
-    <main class="salas"> 
+    <main class="salas">
         <div class="titulo-salas">
             <h2>Locais:</h2>
         </div>
@@ -14,10 +14,10 @@
            <div class="painel">
               <!-- <img class="image-responsive" :src="foto.url" :alt="foto.titulo"> -->
             <div>
-            <h3 class="centralizado">{{foto.titulo}}</h3>
+            <h3 class="centralizado">{{fotos.titulo}}</h3>
             <!-- <p class="centralizado">{{foto.desc}}</p> -->
           </div>
-        </div> 
+        </div>
       </li>
     </ul>
 
@@ -32,12 +32,12 @@
             <h3 class="centralizado">{{foto.titulo}}</h3>
             <p class="centralizado">{{foto.desc}}</p>
           </div>
-        </div> 
+        </div>
       </li>
     </ul> -->
 
     </main>
-    
+
   </div>
 </template>
 
