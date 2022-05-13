@@ -6,6 +6,6 @@ export default {
         return http.get('tables')
     },
     salvar:(id) => {
-        return http.post('locais', id)
+        return http.post('locais', id,horario1,horario2)
     }
 }

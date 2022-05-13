@@ -5,7 +5,8 @@
                 <slot class="titulo">
                 </slot>
             </h1>
-            <button class="login-btn">log-in</button>
+
+             <a href="/logs"><button class="login-btn">reservados</button></a>
         </div>
     </header>
 </template>
