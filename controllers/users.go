@@ -1,12 +1,10 @@
 package controllers
 
 import (
-	"github.com/Fix-Pay/reserva-mesa-sala/db"
 	"github.com/Fix-Pay/reserva-mesa-sala/models"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gofiber/fiber/v2"
 	"golang.org/x/crypto/bcrypt"
-	"log"
 	"os"
 	"time"
 )
@@ -77,25 +75,4 @@ func Auth(c *fiber.Ctx) error {
 		Token: token,
 		User:  user,
 	})
-}
-
-func CreateTables(c *fiber.Ctx) error {
-	var table models.Table
-	if err := c.BodyParser(&table); err != nil {
-		log.Fatalln(err)
-	}
-	if err := table.Create(); err != nil {
-		log.Fatalln(err)
-	}
-	return c.JSON(table)
-}
-
-func GetTables(c *fiber.Ctx) error {
-	engine, err := db.CreateDB()
-	if err != nil {
-		return err
-	}
-	var tables []models.Table
-	engine.Find(&tables)
-	return c.JSON(tables)
 }

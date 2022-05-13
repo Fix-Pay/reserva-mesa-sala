@@ -11,6 +11,8 @@ func HandleUsers(app *fiber.App) error {
 	app.Post("/users/auth", controllers.Auth)
 	app.Post("/tables/create", controllers.CreateTables)
 	app.Get("/tables", controllers.GetTables)
+	app.Post("/reserva/create", controllers.CreateReserva)
+	app.Get("/reserva/get", controllers.GetReserva)
 
 	return nil
 }
