@@ -19,13 +19,14 @@
     </ul>
       <div v-if="modal" class="modal" >
         <div>
-          <label for="horaI">Informe o horario de inicio:</label>
+          <h2>Nos informe:</h2>
+          <label for="horaI">O horario de inicio:</label>
           <input type="time" id="horaI" v-model="horarioI">
           <br>
-          <label for="horaF">Informe o horario final:</label>
+          <label for="horaF">O horario final:</label>
           <input type="time" id="horaF" v-model="horarioF">
           <br>
-          <label for="data">Informe a data da reserva:</label>
+          <label for="data">A data da reserva:</label>
           <input type="date" name="" id="data" v-model="dataInput">
           <br>
           <button v-on:click="modal = false">close</button>
