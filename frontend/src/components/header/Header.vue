@@ -1,29 +1,40 @@
 <template>
-    <header>
-        <div class="caixa">
-            <h1>
-                <slot class="titulo">
-                </slot>
-            </h1>
-            <button class="login-btn" @click="showLogin">Log In</button>
-        </div>
-    </header>
+  <div>
+    <b-nav pills>
+      <b-nav-item href="/"><img class="img-header" src="../../assets/logo-black.svg" alt=""></b-nav-item>
+      <b-nav-item href="/logs">Reservados</b-nav-item>
+      <b-nav-item href="/#">Disponível</b-nav-item>
+      <b-nav-item-dropdown
+        id="my-nav-dropdown"
+        text="Identificação"
+        toggle-class="nav-link-custom"
+        right
+      >
+        <b-item>
+          <div class="form-group">
+            <input type="text" class="form-control" v-model="name" placeholder="Name"/>
+          </div>
+        </b-item>
+        <b-item>
+          <div class="form-group">
+            <input type="email" class="form-control" v-model="email" placeholder="Email"/>
+          </div>
+        </b-item>
+        <b-dropdown-divider></b-dropdown-divider>
+        <b-dropdown-item><b-button variant="outline-primary">Submit</b-button></b-dropdown-item>
+      </b-nav-item-dropdown>
+    </b-nav>
+  </div>
 </template>
 
 <script>
 export default {
-  methods: {
-    showLogin() {
-      this.$router.push('/login');
-    }
-  }
 }
 </script>
 
 <style>
 header {
   background: #ffff;
-  border-bottom: #606566 solid 2px;
 }
 .caixa {
   position: relative;
@@ -31,9 +42,9 @@ header {
   margin: 0 auto;
 }
 .img-header {
-  width: 20%;
+  width: 200px;
 }
-.login-btn {
+b-nav-item-dropdown {
   font-weight: bold;
   color:white;
   position: absolute;
@@ -46,8 +57,7 @@ header {
   border-radius: 6px;
   cursor: pointer;
 }
-
-.login-btn:hover {
+.reservas:hover {
   background: aqua;
   transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
