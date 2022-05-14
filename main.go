@@ -1,23 +1,31 @@
 package main
 
 import (
-	"fixpay/reserva-mesa-sala/controllers"
-	"fmt"
-	goutils "github.com/armando-couto/goutils"
-	fiber "github.com/gofiber/fiber/v2"
+	"github.com/Fix-Pay/reserva-mesa-sala/db"
+	"github.com/Fix-Pay/reserva-mesa-sala/models"
+	"github.com/Fix-Pay/reserva-mesa-sala/routes"
+	"github.com/gofiber/fiber/v2"
 	"log"
 )
 
 func main() {
 	app := fiber.New()
 
-	//=============================== Routes ===============================
-	app.Post("/signup", controllers.SignUp)
-	app.Post("/login", controllers.SignIn)
-	app.Get("/private", controllers.Private)
-	app.Get("/public", controllers.Public)
+	// Migration with GORM //
+	engine, err := db.CreateDB()
+	if err != nil {
+		log.Fatalln(err)
+	}
+	if err := engine.AutoMigrate(&models.User{}); err != nil {
+		log.Fatalln(err)
+	}
+	// Declaring Routes //
+	if err := routes.HandleUsers(app); err != nil {
+		log.Fatalln(err)
+	}
 
-	//================================ Run =================================
-	fmt.Println("Carregando servidor...")
-	log.Fatal(app.Listen(fmt.Sprint(":", goutils.Godotenv("port_application"))))
+	// Declaring port //
+	if err := app.Listen(":8000"); err != nil {
+		log.Fatalln("Erro listen and server", err)
+	}
 }
