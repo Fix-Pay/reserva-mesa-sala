@@ -4,7 +4,6 @@ import (
 	"github.com/Fix-Pay/reserva-mesa-sala/db"
 	"github.com/Fix-Pay/reserva-mesa-sala/models"
 	"github.com/Fix-Pay/reserva-mesa-sala/routes"
-	"github.com/gofiber/fiber/v2"
 	"log"
 )
 
@@ -20,9 +19,7 @@ func main() {
 		log.Fatalln(err)
 	}
 	// Declaring Routes //
-	if err := routes.HandleUsers(app); err != nil {
-		log.Fatalln(err)
-	}
+	routes.HandleUsers(app)
 
 	// Declaring port //
 	if err := app.Listen(":8000"); err != nil {

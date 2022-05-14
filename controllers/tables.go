@@ -3,7 +3,6 @@ package controllers
 import (
 	"github.com/Fix-Pay/reserva-mesa-sala/db"
 	"github.com/Fix-Pay/reserva-mesa-sala/models"
-	"github.com/gofiber/fiber/v2"
 	"log"
 	"strconv"
 )
@@ -53,6 +52,7 @@ func CreateReserva(c *fiber.Ctx) error {
 	}
 	return nil
 }
+
 func GetReserva(c *fiber.Ctx) error {
 	engine, err := db.CreateDB()
 	if err != nil {
@@ -60,5 +60,7 @@ func GetReserva(c *fiber.Ctx) error {
 	}
 	var reserva []models.Reserva
 	engine.Find(&reserva)
+	defer engine.Close()
+
 	return c.JSON(reserva)
 }
