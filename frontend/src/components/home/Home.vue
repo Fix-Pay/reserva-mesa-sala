@@ -134,8 +134,7 @@ export default {
       ]
     }
   },
-  //get para pegar os locais
-
+  
   // mounted(){
   //   Mesa.listar().then(resposta => {
   //     this.mesas = resposta.data
@@ -153,6 +152,7 @@ export default {
       this.dataI = dataInput
       
       if(window.confirm("voce quer reservar ?")) {
+        //reservaMesa(selected1,horario1,horario2,dataI)
         alert(this.selected1)
         alert(this.horario1)
         alert(typeof(this.horario1))
@@ -162,13 +162,13 @@ export default {
       }
     },
     // reservaMesa(id,horario1,horario2,dataI){
-    //   post:{
-      //    id: id
-      //    horario1: horario1
-        //  horario2: horario2
-        // dataI = dataI
+    //   const post:{
+      //    id: this.id
+      //    horario1: thishorario1
+        //  horario2: this.horario2
+        // dataI = this.dataI
         //}
-        // this.axios.post("url", this.post)
+        // axios.post(localhost:8000/,post)
         //.then((result) =>{
         // console.warn(result)  
         //})
