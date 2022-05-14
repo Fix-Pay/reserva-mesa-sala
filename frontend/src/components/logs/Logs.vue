@@ -1,17 +1,29 @@
 <template>
 <div class="body">
+<<<<<<< HEAD
   <meu-header>
     <navbar placement="top" type="default">
       <a slot="brand" href="/" title="Home" class="navbar-brand"> <img class="img-header" src="../../assets/logo-black.svg" alt=""> </a>
     </navbar>
   </meu-header>
+=======
+    <meu-header>
+        <img class="img-header" src="../../assets/logo-black.svg" alt="">
+    </meu-header>
+>>>>>>> feature/front1
         <div class="container">
             <h2 class="titulo">Reservados:</h2>
             <ul class="ul-lista">
                 <li class="lista-logs"></li>
+<<<<<<< HEAD
             </ul>
         </div>
 </div>
+=======
+            </ul>  
+        </div> 
+</div> 
+>>>>>>> feature/front1
 </template>
 
 <script>

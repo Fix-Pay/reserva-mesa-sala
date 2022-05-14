@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <b-nav pills>
       <b-nav-item href="/"><img class="img-header" src="../../assets/logo-black.svg" alt=""></b-nav-item>
@@ -25,6 +26,18 @@
       </b-nav-item-dropdown>
     </b-nav>
   </div>
+=======
+    <header>
+        <div class="caixa">
+            <h1>
+                <slot class="titulo">
+                </slot>
+            </h1>
+
+             <a href="/logs"><button class="login-btn">reservados</button></a>
+        </div>
+    </header>
+>>>>>>> feature/front1
 </template>
 
 <script>
@@ -35,6 +48,10 @@ export default {
 <style>
 header {
   background: #ffff;
+<<<<<<< HEAD
+=======
+  border-bottom: #606566 solid 2px;
+>>>>>>> feature/front1
 }
 .caixa {
   position: relative;
@@ -42,6 +59,7 @@ header {
   margin: 0 auto;
 }
 .img-header {
+<<<<<<< HEAD
   width: 200px;
 }
 b-nav-item-dropdown {
@@ -63,3 +81,20 @@ b-nav-item-dropdown {
 }
 
 </style>
+=======
+  width: 20%;
+}
+.login-btn {
+  position: absolute;
+  top: 10%;
+  right: 0px;
+  width: 10%;
+  height: 26px;
+  background-color: #52bacd;
+  border: 1px solid #52bacd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+</style>
+>>>>>>> feature/front1

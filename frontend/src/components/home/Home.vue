@@ -1,12 +1,19 @@
 <template>
   <div>
     <meu-header>
+<<<<<<< HEAD
       <navbar placement="top" type="default">
         <a slot="brand" href="/" title="Home" class="navbar-brand"> <img class="img-header" src="../../assets/logo-black.svg" alt=""> </a>
       </navbar>
     </meu-header>
     <h2 class="sub-titulo">Locais Reservaveis:</h2>
     <main class="salas">
+=======
+        <img class="img-header" src="../../assets/logo-black.svg" alt="">     
+    </meu-header>
+    <h2 class="sub-titulo">Locais Reservaveis:</h2>
+    <main class="salas"> 
+>>>>>>> feature/front1
         <div class="titulo-salas">
             <h2>Locais:</h2>
         </div>
@@ -16,6 +23,7 @@
              <div>
             <h3 class="centralizado">{{mesa.titulo}}</h3>
           </div>
+<<<<<<< HEAD
         </div>
       </li>
     </ul>
@@ -24,6 +32,11 @@
         <b-table striped hover :items="items" :fields="fields"></b-table>
       </div>
 
+=======
+        </div> 
+      </li>
+    </ul>
+>>>>>>> feature/front1
       <div v-if="modal" class="modal" >
         <div>
           <h2>Nos informe:</h2>
@@ -51,12 +64,20 @@
             <h3 class="centralizado">{{foto.titulo}}</h3>
             <p class="centralizado">{{foto.desc}}</p>
           </div>
+<<<<<<< HEAD
         </div>
+=======
+        </div> 
+>>>>>>> feature/front1
       </li>
     </ul> -->
 
     </main>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> feature/front1
   </div>
 </template>
 
@@ -72,6 +93,7 @@ export default {
   },
   data () {
     return {
+<<<<<<< HEAD
           fields: [
             {
               key: 'last_name',
@@ -95,6 +117,8 @@ export default {
             { isActive: true, date: 38, first_name: 'Jami', last_name: 'Carney' }
           ],
 
+=======
+>>>>>>> feature/front1
       modal: false,
       horarioI : "",
       horarioF : "",
@@ -164,12 +188,16 @@ export default {
       ]
     }
   },
+<<<<<<< HEAD
   mounted() {
     this.$session.set("username", "user123");
     console.log(this.$session.get("username"));
   },
   //get para pegar os locais
 
+=======
+  
+>>>>>>> feature/front1
   // mounted(){
   //   Mesa.listar().then(resposta => {
   //     this.mesas = resposta.data
@@ -185,8 +213,14 @@ export default {
       this.horario1 = parseFloat(this.horarioI)
       this.horario2 = parseFloat(this.horarioF)
       this.dataI = dataInput
+<<<<<<< HEAD
 
       if(window.confirm("voce quer reservar ?")) {
+=======
+      
+      if(window.confirm("voce quer reservar ?")) {
+        //reservaMesa(selected1,horario1,horario2,dataI)
+>>>>>>> feature/front1
         alert(this.selected1)
         alert(this.horario1)
         alert(typeof(this.horario1))
@@ -196,6 +230,7 @@ export default {
       }
     },
     // reservaMesa(id,horario1,horario2,dataI){
+<<<<<<< HEAD
     //   post:{
       //    id: id
       //    horario1: horario1
@@ -205,18 +240,38 @@ export default {
         // this.axios.post("url", this.post)
         //.then((result) =>{
         // console.warn(result)
+=======
+    //   const post:{
+      //    id: this.id
+      //    horario1: thishorario1
+        //  horario2: this.horario2
+        // dataI = this.dataI
+        //}
+        // axios.post(localhost:8000/,post)
+        //.then((result) =>{
+        // console.warn(result)  
+>>>>>>> feature/front1
         //})
 
     //}
     // })
     //
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> feature/front1
   // if( resultado == 200){
     //alguma coisa pra reservar ou methodo de atualizar pagina
   //}
   //}
+<<<<<<< HEAD
 
   }
+=======
+ 
+  } 
+>>>>>>> feature/front1
 }
 </script>
 
